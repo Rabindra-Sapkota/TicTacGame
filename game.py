@@ -103,24 +103,24 @@ class Game():
 
 #3 Game Turn
 
-    def take_turn(self,user,item):
+    def take_turn(self,user_name,symbol):
         try:
-            position = int(input(user + ' choose a place, 1-9 : '))
+            position = int(input(user_name + ' choose a place, 1-9 : '))
             if position > 9 or position < 1:
                 raise Exception
         except:
             print("Pick Number between 1-9 : ")
-            return self.take_turn(user,item)
+            return self.take_turn(user_name,symbol)
 
         if self.control_board.is_place_taken(self.game_board,position):
             print("This place is taken")
-            self.take_turn(user,item)
+            self.take_turn(user_name,symbol)
         else:
-            self.control_board.set_items(item,position,self.game_board)
+            self.control_board.set_items(symbol,position,self.game_board)
             self.control_board.print_board(self.game_board)
 
         if self.control_board.is_game_won(self.game_board):
-            print(user + " Wins.")
+            print(user_name + " Wins.")
             self.game_running = False
 
 #4 Game Mamager
