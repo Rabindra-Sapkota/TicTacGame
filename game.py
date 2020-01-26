@@ -1,5 +1,4 @@
 #Create a class for game borad
-
 class Gameboard():
     #define constructor for class object which initializes game_board.
     #dictionary is choosen for gameboard as there as fixed 9 place and
@@ -15,10 +14,6 @@ class Gameboard():
         game_board[position]=symbol
         return game_board
 
-    #gameboard function is used as decorator to update change when dependent variable changes
-    @property
-    def game_Board(self):
-        return self.game_board
 
     #function to clear gameboard at start/restart of game
     def clear_board(self):
@@ -105,7 +100,7 @@ class Game():
             if position > 9 or position < 1:
                 raise Exception
         except:
-            print("Pick Number between 1-9 : ")
+            print("  Pick Number between 1-9  ")
             return self.take_turn(user_name,symbol)
 
         if self.control_board.is_place_taken(self.game_board,position):
