@@ -5,7 +5,7 @@ class Gameboard():
     #dictionary is choosen for gameboard as there as fixed 9 place and
     #it will be easier to work as key value pair
     def __init__(self):
-        self.game_board = {1:' ',2:' ',3:' ',4:' ',5;' ',6:' ',7:' ',8:' ',9:' '}
+        self.game_board = {1:' ',2:' ',3:' ',4:' ',5:' ',6:' ',7:' ',8:' ',9:' '}
 
 
     #create set_item function which sets value to users choice position in gameboard
@@ -22,7 +22,7 @@ class Gameboard():
 
     #function to clear gameboard at start/restart of game
     def clear_board(self):
-        self.game_board = {1:' ',2:' ',3:' ',4:' ',5;' ',6:' ',7:' ',8:' ',9:' '}
+        self.game_board = {1:' ',2:' ',3:' ',4:' ',5:' ',6:' ',7:' ',8:' ',9:' '}
 
     #function to validate if desired place is already taken
     def is_place_taken(sef,game_board,position):
@@ -70,9 +70,9 @@ class Game():
         self.game_board = self.control_board.game_board
         self.playerOne = 'O'
         self.playerTwo = 'X'
-        print("***************************")
-        print("**  Welcome To X-O Game  **")
-        print("***************************")
+        print("\t\t\t\t\t\t\t\t\t\t\t***************************")
+        print("\t\t\t\t\t\t\t\t\t\t\t**  Welcome To X-O Game  **")
+        print("\t\t\t\t\t\t\t\t\t\t\t***************************")
         self.player_one_name=input("Please Enter Player One Name : ")
         self.player_two_name=input("Please Enter Player Two Name : ")
         print('\nHere each place in board is representd as 1-9 starting from left along row')
@@ -98,8 +98,8 @@ class Game():
                 elif replay == 1:
                     self.game_running = True
                     self.restart_game()
-        except:
-            self.end_game()
+            except:
+                self.end_game()
 
 #3 Game Turn
 
@@ -112,14 +112,14 @@ class Game():
             print("Pick Number between 1-9 : ")
             return self.take_turn(user,item)
 
-        if self.controlBoard.is_place_taken(self.game_board,position):
+        if self.control_board.is_place_taken(self.game_board,position):
             print("This place is taken")
             self.take_turn(user,item)
         else:
-            self.controlBoard.set_items(item,position,self.game_board)
-            self.controlBoard.print_board(self.game_board)
+            self.control_board.set_items(item,position,self.game_board)
+            self.control_board.print_board(self.game_board)
 
-        if self.controlBoard.is_game_won(self.game_board):
+        if self.control_board.is_game_won(self.game_board):
             print(user + " Wins.")
             self.game_running = False
 
@@ -129,14 +129,20 @@ class Game():
         self.start_game()
         while self.game_running:
             if self.turn % 2 != 0:
-                self.take_turn(self.player_one,'O')
+                self.take_turn(self.player_one_name,'O')
             else:
-                self.take_turn(self.player_two,'X')
+                self.take_turn(self.player_two_name,'X')
 
-            if self.controlBoard.is_board_full(self.game_board):
+            if self.control_board.is_board_full(self.game_board):
                 print("Game Draw")
                 self.game_running = False
             self.turn += 1
 
             if not self.game_running:
                 self.end_game()
+
+#Create Game Launcher
+
+if __name__ == '__main__':
+    a=Game()
+    a.main()
