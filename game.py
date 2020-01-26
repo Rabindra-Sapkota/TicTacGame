@@ -62,8 +62,9 @@ class Gameboard():
             if row != 2:
                 print('-----')
 
-class Game():
 
+
+class Game():
 # 1 Game Start
     def start_game(self):
         self.control_board = Gameboard()
@@ -80,7 +81,6 @@ class Game():
         self.turn = 1
 
 #2 Game Restart
-
     def restart_game(self):
         self.control_board = Gameboard()
         self.game_board=self.control_board.game_board
@@ -88,7 +88,6 @@ class Game():
         self.turn = 1
 
 #3 Game end and play again
-
     def end_game(self):
         if self.game_running == False:
             try:
@@ -101,26 +100,25 @@ class Game():
             except:
                 self.end_game()
 
-#3 Game Turn
-
-    def take_turn(self,user,item):
+#4 Game Turn
+    def take_turn(self,user_name,symbol):
         try:
-            position = int(input(user + ' choose a place, 1-9 : '))
+            position = int(input(user_name + ' choose a place, 1-9 : '))
             if position > 9 or position < 1:
                 raise Exception
         except:
             print("Pick Number between 1-9 : ")
-            return self.take_turn(user,item)
+            return self.take_turn(user_name,symbol)
 
         if self.control_board.is_place_taken(self.game_board,position):
             print("This place is taken")
-            self.take_turn(user,item)
+            self.take_turn(user_name,symbol)
         else:
-            self.control_board.set_items(item,position,self.game_board)
+            self.control_board.set_items(symbol,position,self.game_board)
             self.control_board.print_board(self.game_board)
 
         if self.control_board.is_game_won(self.game_board):
-            print(user + " Wins.")
+            print(user_name + " Wins.")
             self.game_running = False
 
 #4 Game Mamager
