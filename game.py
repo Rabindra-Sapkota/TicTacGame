@@ -131,7 +131,7 @@ class Game():
             else:
                 self.take_turn(self.player_two_name,'X')
 
-            if self.control_board.is_board_full(self.game_board):
+            if self.control_board.is_board_full(self.game_board) and self.game_running:
                 print("Game Draw")
                 self.game_running = False
             self.turn += 1
