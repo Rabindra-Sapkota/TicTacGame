@@ -11,8 +11,8 @@ class Gameboard():
     #create set_item function which sets value to users choice position in gameboard
     #setting of value is done by placing user as value on choosen key of dictionary
     #game board is written after setting items
-    def set_items(self,user,position,game_board):
-        game_board[position]=user
+    def set_items(self,symbol,position,game_board):
+        game_board[position]=symbol
         return game_board
 
     #gameboard function is used as decorator to update change when dependent variable changes
