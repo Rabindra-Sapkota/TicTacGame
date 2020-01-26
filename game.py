@@ -69,8 +69,6 @@ class Game():
     def start_game(self):
         self.control_board = Gameboard()
         self.game_board = self.control_board.game_board
-        self.playerOne = 'O'
-        self.playerTwo = 'X'
         print("\t\t\t\t\t\t\t\t\t\t\t***************************")
         print("\t\t\t\t\t\t\t\t\t\t\t**  Welcome To X-O Game  **")
         print("\t\t\t\t\t\t\t\t\t\t\t***************************")
