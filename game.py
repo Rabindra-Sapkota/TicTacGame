@@ -62,8 +62,9 @@ class Gameboard():
             if row != 2:
                 print('-----')
 
-class Game():
 
+
+class Game():
 # 1 Game Start
     def start_game(self):
         self.control_board = Gameboard()
@@ -80,7 +81,6 @@ class Game():
         self.turn = 1
 
 #2 Game Restart
-
     def restart_game(self):
         self.control_board = Gameboard()
         self.game_board=self.control_board.game_board
@@ -88,7 +88,6 @@ class Game():
         self.turn = 1
 
 #3 Game end and play again
-
     def end_game(self):
         if self.game_running == False:
             try:
@@ -101,8 +100,7 @@ class Game():
             except:
                 self.end_game()
 
-#3 Game Turn
-
+#4 Game Turn
     def take_turn(self,user_name,symbol):
         try:
             position = int(input(user_name + ' choose a place, 1-9 : '))
